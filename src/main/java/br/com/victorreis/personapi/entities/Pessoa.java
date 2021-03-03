@@ -33,6 +33,12 @@ public class Pessoa {
     private LocalDate dataDeNascimento;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "pessoa_id")
     private List<Telefone> telefones = new ArrayList<>();
 
+    public Pessoa(String nome, String sobrenome, String cpf) {
+        this.nome= nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+    }
 }
